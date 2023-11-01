@@ -40,7 +40,7 @@ This is the first project for Northwestern's COMP337 - Natural Language Processi
   python gg_api.py
   ```
 
-- Run autograder.py to get completeness and spelling scores
+- Run `autograder.py` to get completeness and spelling scores
 
   ```shell
   python autograder.py
