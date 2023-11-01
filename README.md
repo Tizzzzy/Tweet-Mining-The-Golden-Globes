@@ -30,11 +30,11 @@ This is the first project for Northwestern's COMP337 - Natural Language Processi
   ```shell
   pip install -r requirements.txt
   ```
-- Put "ggYYYY.json" files in the root directory, such as gg2013.json or gg2015.json
+- Put `ggYYYY.json` files in the root directory, such as `gg2013.json` or `gg2015.json`
 
-- **Within the file "global_var.py", change the constant "OFFICIAL_AWARDS" to that specific year's ground truth awards**
+- **Within the file `global_var.py`, change the constant `OFFICIAL_AWARDS` to that specific year's ground truth awards**
 
-- Run gg_api.py to get the results
+- Run `gg_api.py` to get the results
 
   ```shell
   python gg_api.py
