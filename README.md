@@ -4,7 +4,7 @@ Repository for the first project in the course ' Natural Language Processing ' a
 
 ## Description
 
-Extract information about Golden Globes in tweets.
+This is the first project for Northwestern's COMP337 - Natural Language Processing class. We are tasked to extract several information (such as hosts, awards, nominees, presenters, and winners) about each year's Golden Globes ceremony based on more than 170,000 tweets. 
 
 ## Getting Started
 
@@ -32,7 +32,9 @@ Extract information about Golden Globes in tweets.
   ```
 - Put "ggYYYY.json" files in the root directory, such as gg2013.json or gg2015.json
 
-- Run gg_api.pyto get the results
+- **Within the file "global_var.py", change the constant "OFFICIAL_AWARDS" to that specific year's ground truth awards**
+
+- Run gg_api.py to get the results
 
   ```shell
   python gg_api.py
@@ -53,8 +55,8 @@ We achieved the following autograder scores on completeness and spelling:
 #### 2013
 |   |Hosts   |Awards   |Winners   |Presenters   |Nominees   |
 |---|---|---|---|---|---|
-|Spelling   |1.0   |0.8017327400895528   |0.5692918192918193   |0.5   |0.025227353449056973   |
-|Completeness   |1.0   |0.14782608695652172   |   |0.5   |0.498493567251462   |
+|Spelling   |1.0   |0.8017327400895528   |0.5692918192918193   |0.5   |0.498493567251462   |
+|Completeness   |1.0   |0.14782608695652172   |   |0.5   |0.025227353449056973   |
 
 ### Best Dressed
  1. Kate Hudson (0.1803921568627451)
@@ -97,3 +99,4 @@ We achieved the following autograder scores on completeness and spelling:
 ## References
 
 * [amitadate/EECS-337-NLP-Project-01](https://github.com/amitadate/EECS-337-NLP-Project-01/blob/0899202832e0b8c64e308f3be851cc8d6387a47a/src/gg_api.py)
+* [Lukas-Justen/NLP-GoldenGlobes](https://github.com/Lukas-Justen/NLP-GoldenGlobes)
