@@ -80,12 +80,11 @@ We achieved the following autograder scores on completeness and spelling:
    
 
 ### Performer
- 1. James Cameron (0.1048158640226629)
- 2. Anne Hathaway (0.0708215297450425)
- 3. Tina Fey Amy (0.06326723323890462)
- 4. Taylor Swift (0.05193578847969783)
- 5. Jennifer Lawrence (0.04343720491029273)
-
+ 1. Anne Hathaway (0.14887640449438203)
+ 2. Daniel Day (0.07584269662921349)
+ 3. Les Miserables (0.07303370786516854)
+ 4. Les Mis (0.05056179775280899)
+ 5. Hugh Jackman (0.03651685393258427)
 
 ## Authors
 
