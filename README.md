@@ -55,8 +55,8 @@ We achieved the following autograder scores on completeness and spelling:
 #### 2013
 |   |Hosts   |Awards   |Winners   |Presenters   |Nominees   |
 |---|---|---|---|---|---|
-|Spelling   |1.0   |0.8017327400895528   |0.5692918192918193   |0.5   |0.498493567251462   |
-|Completeness   |1.0   |0.14782608695652172   |   |0.5   |0.025227353449056973   |
+|Spelling   |1.0   |0.8017327400895528   |0.5692918192918193   |0.5   |0.511293567251462   |
+|Completeness   |1.0   |0.14782608695652172   |   |0.5   |0.02523999905687549   |
 
 ### Best Dressed
  1. Kate Hudson (0.1803921568627451)
