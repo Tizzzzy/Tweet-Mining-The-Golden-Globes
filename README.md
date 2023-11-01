@@ -57,36 +57,34 @@ We achieved the following autograder scores on completeness and spelling:
 |Completeness   |1.0   |0.14782608695652172   |   |0.5   |0.498493567251462   |
 
 ### Best Dressed
- 0. Kate Hudson (0.11363636363636363)
-    <img src='https://static.gofugyourself.com/uploads/2013/01/159422573.jpg' height=300px alt='Kate Hudson 2013 Golden Globes Dress'>
- 1. Julia Roberts (0.10606060606060606)
-    <img src='https://media1.popsugar-assets.com/files/thumbor/FH31FkzGw5pcpkJhotijvsmou1I/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/01/03/1/192/1922398/3d2882dc391eefa7_159445965_10/i/Julia-Roberts-presented-Golden-Globes-black-dress.jpg' height=300px alt='Julia Roberts 2013 Golden Globes Dress'>
- 2. Lucy Liu (0.08333333333333333)
-    <img src='http://applesandonions.com/wp-content/uploads/2013/01/lucy-liu-2013-golden-globes-red-carpet.jpg' height=300px alt='Lucy Liu 2013 Golden Globes Dress'>
+ 1. Kate Hudson (0.1803921568627451)
+   
+    <img src='https://www.gotceleb.com/wp-content/uploads/celebrities/kate-hudson/2013-golden-globe-awards-in-beverly-hills/Kate-Hudson---Golden-Globe-Awards-2013--02.jpg' height=300px alt='Kate Hudson 2013 Golden Globes Dress'>
+
 
 ### Worst Dressed
- 0. Kate Hudson (0.11363636363636363)
-    <img src='https://static.gofugyourself.com/uploads/2013/01/159422573.jpg' height=300px alt='Kate Hudson 2013 Golden Globes Dress'>
- 1. Julia Roberts (0.10606060606060606)
-    <img src='https://media1.popsugar-assets.com/files/thumbor/FH31FkzGw5pcpkJhotijvsmou1I/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/01/03/1/192/1922398/3d2882dc391eefa7_159445965_10/i/Julia-Roberts-presented-Golden-Globes-black-dress.jpg' height=300px alt='Julia Roberts 2013 Golden Globes Dress'>
- 2. Lucy Liu (0.08333333333333333)
-    <img src='http://applesandonions.com/wp-content/uploads/2013/01/lucy-liu-2013-golden-globes-red-carpet.jpg' height=300px alt='Lucy Liu 2013 Golden Globes Dress'>
+ 1. Sienna Miller (0.5833333333333334)
+   
+    <img src='https://imabeautygeek.com/.image/t_share/MTI3NDY5MjYxNzA5OTQxMjE0/sienna-miller-golden-globes-2015jpg.jpg' height=300px alt='sienna-miller-golden-globes-2015jpg'>
+ 2. Halle Berry (0.08333333333333333)
+   
+    <img src='https://s-i.huffpost.com/gen/939572/images/o-HALLE-BERRY-GOLDEN-GLOBES-2013-facebook.jpg' height=300px alt='Halle Berry'>
+
 
 ### Best Joke
- 0. Kate Hudson (0.11363636363636363)
-    <img src='https://static.gofugyourself.com/uploads/2013/01/159422573.jpg' height=300px alt='Kate Hudson 2013 Golden Globes Dress'>
- 1. Julia Roberts (0.10606060606060606)
-    <img src='https://media1.popsugar-assets.com/files/thumbor/FH31FkzGw5pcpkJhotijvsmou1I/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/01/03/1/192/1922398/3d2882dc391eefa7_159445965_10/i/Julia-Roberts-presented-Golden-Globes-black-dress.jpg' height=300px alt='Julia Roberts 2013 Golden Globes Dress'>
- 2. Lucy Liu (0.08333333333333333)
-    <img src='http://applesandonions.com/wp-content/uploads/2013/01/lucy-liu-2013-golden-globes-red-carpet.jpg' height=300px alt='Lucy Liu 2013 Golden Globes Dress'>
+ 1. James Cameron (0.1048158640226629)
+ 2. Anne Hathaway (0.0708215297450425)
+ 3. Tina Fey Amy (0.06326723323890462)
+ 4. Taylor Swift (0.05193578847969783)
+ 5. Jennifer Lawrence (0.04343720491029273)
+   
 
 ### Performer
- 0. Kate Hudson (0.11363636363636363)
-    <img src='https://static.gofugyourself.com/uploads/2013/01/159422573.jpg' height=300px alt='Kate Hudson 2013 Golden Globes Dress'>
- 1. Julia Roberts (0.10606060606060606)
-    <img src='https://media1.popsugar-assets.com/files/thumbor/FH31FkzGw5pcpkJhotijvsmou1I/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/01/03/1/192/1922398/3d2882dc391eefa7_159445965_10/i/Julia-Roberts-presented-Golden-Globes-black-dress.jpg' height=300px alt='Julia Roberts 2013 Golden Globes Dress'>
- 2. Lucy Liu (0.08333333333333333)
-    <img src='http://applesandonions.com/wp-content/uploads/2013/01/lucy-liu-2013-golden-globes-red-carpet.jpg' height=300px alt='Lucy Liu 2013 Golden Globes Dress'>
+ 1. James Cameron (0.1048158640226629)
+ 2. Anne Hathaway (0.0708215297450425)
+ 3. Tina Fey Amy (0.06326723323890462)
+ 4. Taylor Swift (0.05193578847969783)
+ 5. Jennifer Lawrence (0.04343720491029273)
 
 
 ## Authors
