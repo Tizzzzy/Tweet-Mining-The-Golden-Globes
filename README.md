@@ -32,6 +32,8 @@ This is the first project for Northwestern's COMP337 - Natural Language Processi
   ```
 - Put `ggYYYY.json` files in the root directory, such as `gg2013.json` or `gg2015.json`
 
+- Change `output_dir` to your own directory path in `best_dress` and `worst_dress` functions
+
 - **Within the file `global_var.py`, change the constant `OFFICIAL_AWARDS` to that specific year's ground truth awards**
 
 - Run `gg_api.py` to get the results
