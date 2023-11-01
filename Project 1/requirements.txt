@@ -1,0 +1,10 @@
+# pip install -r requirements.txt
+emoji
+requests
+rapidfuzz
+cinemagoer
+bing-image-downloader
+pandas
+numpy
+nltk
+lxml==4.8.0
