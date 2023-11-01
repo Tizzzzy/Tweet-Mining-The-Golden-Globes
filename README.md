@@ -44,6 +44,51 @@ Extract information about Golden Globes in tweets.
   python autograder.py
   ```
 
+## Results
+The code will produce two result files. First, it creates a ```results.json``` which contains the results for the autograder. The ```gg_api.py``` will automatically read the content of that file and feed it into the autograder. Secondly, we are creating a ```results.md``` file which is human readable and contains the same results. Furthermore, we added some visualizations to that file which show the results for the additional goals we had.
+
+### Autograder
+We achieved the following autograder scores on completeness and spelling:
+
+#### 2013
+|   |Hosts   |Awards   |Winners   |Presenters   |Nominees   |
+|---|---|---|---|---|---|
+|Spelling   |1.0   |0.8017327400895528   |0.5692918192918193   |0.5   |0.025227353449056973   |
+|Completeness   |1.0   |0.14782608695652172   |   |0.5   |0.498493567251462   |
+
+### Best Dressed
+ 0. Kate Hudson (0.11363636363636363)
+    <img src='https://static.gofugyourself.com/uploads/2013/01/159422573.jpg' height=300px alt='Kate Hudson 2013 Golden Globes Dress'>
+ 1. Julia Roberts (0.10606060606060606)
+    <img src='https://media1.popsugar-assets.com/files/thumbor/FH31FkzGw5pcpkJhotijvsmou1I/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/01/03/1/192/1922398/3d2882dc391eefa7_159445965_10/i/Julia-Roberts-presented-Golden-Globes-black-dress.jpg' height=300px alt='Julia Roberts 2013 Golden Globes Dress'>
+ 2. Lucy Liu (0.08333333333333333)
+    <img src='http://applesandonions.com/wp-content/uploads/2013/01/lucy-liu-2013-golden-globes-red-carpet.jpg' height=300px alt='Lucy Liu 2013 Golden Globes Dress'>
+
+### Worst Dressed
+ 0. Kate Hudson (0.11363636363636363)
+    <img src='https://static.gofugyourself.com/uploads/2013/01/159422573.jpg' height=300px alt='Kate Hudson 2013 Golden Globes Dress'>
+ 1. Julia Roberts (0.10606060606060606)
+    <img src='https://media1.popsugar-assets.com/files/thumbor/FH31FkzGw5pcpkJhotijvsmou1I/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/01/03/1/192/1922398/3d2882dc391eefa7_159445965_10/i/Julia-Roberts-presented-Golden-Globes-black-dress.jpg' height=300px alt='Julia Roberts 2013 Golden Globes Dress'>
+ 2. Lucy Liu (0.08333333333333333)
+    <img src='http://applesandonions.com/wp-content/uploads/2013/01/lucy-liu-2013-golden-globes-red-carpet.jpg' height=300px alt='Lucy Liu 2013 Golden Globes Dress'>
+
+### Best Joke
+ 0. Kate Hudson (0.11363636363636363)
+    <img src='https://static.gofugyourself.com/uploads/2013/01/159422573.jpg' height=300px alt='Kate Hudson 2013 Golden Globes Dress'>
+ 1. Julia Roberts (0.10606060606060606)
+    <img src='https://media1.popsugar-assets.com/files/thumbor/FH31FkzGw5pcpkJhotijvsmou1I/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/01/03/1/192/1922398/3d2882dc391eefa7_159445965_10/i/Julia-Roberts-presented-Golden-Globes-black-dress.jpg' height=300px alt='Julia Roberts 2013 Golden Globes Dress'>
+ 2. Lucy Liu (0.08333333333333333)
+    <img src='http://applesandonions.com/wp-content/uploads/2013/01/lucy-liu-2013-golden-globes-red-carpet.jpg' height=300px alt='Lucy Liu 2013 Golden Globes Dress'>
+
+### Performer
+ 0. Kate Hudson (0.11363636363636363)
+    <img src='https://static.gofugyourself.com/uploads/2013/01/159422573.jpg' height=300px alt='Kate Hudson 2013 Golden Globes Dress'>
+ 1. Julia Roberts (0.10606060606060606)
+    <img src='https://media1.popsugar-assets.com/files/thumbor/FH31FkzGw5pcpkJhotijvsmou1I/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/01/03/1/192/1922398/3d2882dc391eefa7_159445965_10/i/Julia-Roberts-presented-Golden-Globes-black-dress.jpg' height=300px alt='Julia Roberts 2013 Golden Globes Dress'>
+ 2. Lucy Liu (0.08333333333333333)
+    <img src='http://applesandonions.com/wp-content/uploads/2013/01/lucy-liu-2013-golden-globes-red-carpet.jpg' height=300px alt='Lucy Liu 2013 Golden Globes Dress'>
+
+
 ## Authors
 
 [Dong Shu](dongshu2024@u.northwestern.edu) KJJ8053
