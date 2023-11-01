@@ -90,11 +90,11 @@ We achieved the following autograder scores on completeness and spelling:
 
 ## Authors
 
-[Dong Shu](dongshu2024@u.northwestern.edu) KJJ8053
+[Dong Shu](dongshu2024@u.northwestern.edu)
 
-[Ding Zhang](dingzhang2025@u.northwestern.edu) KVK9920
+[Ding Zhang](dingzhang2025@u.northwestern.edu)
 
-[Haoran Zhao](haoranzhao2024@u.northwestern.edu) OUA1078
+[Haoran Zhao](haoranzhao2024@u.northwestern.edu)
 
 ## References
 
