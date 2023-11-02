@@ -11,7 +11,21 @@ We mainly summarizes our work in three python files: `gg_api.py`, `util.py`, and
 * `util.py`: this file stores all the helper functions that we use for extracting the hosts, awards, nominees, etc.
 * `global_var.py`: this file stores the global constants that we use for information extraction, such as a list of strings that represent the "ground truth" awards for that ceremony; stopwords used for mining awards, nominees, presenters, etc; and regular expressions for tweet pre-processing.
 
-Depends on the machines that you would run this program on, the running time (pre-process + information extraction) would vary between 8 - 30 minutes. 
+Depends on the machine that you would run this program on, the running time (pre-process + information extraction) would vary between 8 - 30 minutes. 
+
+## Design Logic
+
+Through out the design process of this project, we are mainly following on the four steps of run-time structure: 
+* Extraction
+* Clustering
+* Applying Constraints
+* Aggregation
+
+Almost all our functions follow the idea of the above four steps:
+* Extraction (Pre-processing): Within `pre-ceremony()`, we first pre-process the entire tweets. We perform data cleaning using the specified common stopwords for tweets to filter out abbreviations and slangs. We also remove emojis, punctuations, hashtags, tags, and links.
+* Clustering: We have written helper functions that uses regex expressions and keywords matching to cluster tweets with the most matching relevant award category. We also applied fuzzy matching that gets a probability score of which tweet that contains name matches the most with the award category (used in `get_winner(year)` function)
+* Applying Constraints: after clustering, we then apply a large amount of regular expression and string matching trying to extract useful information within the given tweet. By useful information we mean noun phrases that can correspond to human names, award names, or movie (series) names.
+* Aggregation: Lastly, we take the relatively clean data extracted and apply aggregation processes. We merge or discard similar names that may refer to the same person or same movie. We take the result and search in imdb library to get the final list. We then output our results in two forms: human readable form printed to the console, and a json file.
 
 ## Getting Started
 
