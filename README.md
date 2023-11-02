@@ -11,7 +11,7 @@ We mainly summarizes our work in three python files: `gg_api.py`, `util.py`, and
 * `util.py`: this file stores all the helper functions that we use for extracting the hosts, awards, nominees, etc.
 * `global_var.py`: this file stores the global constants that we use for information extraction, such as a list of strings that represent the "ground truth" awards for that ceremony; stopwords used for mining awards, nominees, presenters, etc; and regular expressions for tweet pre-processing.
 
-Depends on the machine that you would run this program on, the running time (pre-process + information extraction) would vary between 8 - 30 minutes. 
+Depends on the machine that you would run this program on, the running time (pre-process + information extraction) would vary between 8 - 15 minutes. 
 
 ## Design Logic
 
