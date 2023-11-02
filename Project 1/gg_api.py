@@ -24,6 +24,8 @@ nltk.download("popular")
 nltk.download("maxent_ne_chunker")
 nltk.download("words")
 
+global df
+
 # ============================================= Functions ====================================================
 
 def get_hosts(year):
@@ -345,6 +347,7 @@ def pre_ceremony():
     plain text file. It is the first thing the TA will run when grading.
     Do NOT change the name of this function or what it returns.'''
     # Your code here
+    global df
     df = process_json('2013')
     df['text'] = df['text'].apply(remove_stopwords)
     print("==========================Pre-ceremony processing complete===========================")
@@ -412,8 +415,7 @@ def main():
     run when grading. Do NOT change the name of this function or
     what it returns.'''
     # Your code here
-    
-    #print("Please enter the year:")
+   
     year = 2013
     pre_ceremony()
     get_result_and_json(year)
