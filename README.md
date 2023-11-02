@@ -4,7 +4,14 @@ Repository for the first project in the course ' Natural Language Processing ' a
 
 ## Description
 
-This is the first project for Northwestern's COMP337 - Natural Language Processing class. We are tasked to extract several information (such as hosts, awards, nominees, presenters, and winners) about each year's Golden Globes ceremony based on more than 170,000 tweets. 
+This is the first project for Northwestern's COMP337 - Natural Language Processing class. We are tasked to extract several information (such as hosts, awards, nominees, presenters, and winners) about each year's Golden Globes ceremony based on more than 170,000 tweets. By default, this project is intended to extract tweets that discusses the Golden Globe ceremony (year=2013), but the code can also be migrated to extract information for other ceremonies.
+
+We mainly summarizes our work in three python files: `gg_api.py`, `util.py`, and `global_var.py`:
+* `gg_api.py`: this file is the main program that will be called if you want to generate a human readable output on hosts, awards, nominees, presenters, and winners, and save the results into `result_{year}.json` file, where you should specify the year. 
+* `util.py`: this file stores all the helper functions that we use for extracting the hosts, awards, nominees, etc.
+* `global_var.py`: this file stores the global constants that we use for information extraction, such as a list of strings that represent the "ground truth" awards for that ceremony; stopwords used for mining awards, nominees, presenters, etc; and regular expressions for tweet pre-processing.
+
+Depends on the machines that you would run this program on, the running time (pre-process + information extraction) would vary between 8 - 30 minutes. 
 
 ## Getting Started
 
