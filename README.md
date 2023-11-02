@@ -4,14 +4,35 @@ Repository for the first project in the course ' Natural Language Processing ' a
 
 ## Description
 
-This is the first project for Northwestern's COMP337 - Natural Language Processing class. We are tasked to extract several information (such as hosts, awards, nominees, presenters, and winners) about each year's Golden Globes ceremony based on more than 170,000 tweets. 
+This is the first project for Northwestern's COMP337 - Natural Language Processing class. We are tasked to extract several information (such as hosts, awards, nominees, presenters, and winners) about each year's Golden Globes ceremony based on more than 170,000 tweets. By default, this project is intended to extract tweets that discusses the Golden Globe ceremony (year=2013), but the code can also be migrated to extract information for other ceremonies.
+
+We mainly summarizes our work in three python files: `gg_api.py`, `util.py`, and `global_var.py`:
+* `gg_api.py`: this file is the main program that will be called if you want to generate a human readable output on hosts, awards, nominees, presenters, and winners, and save the results into `result_{year}.json` file, where you should specify the year. 
+* `util.py`: this file stores all the helper functions that we use for extracting the hosts, awards, nominees, etc.
+* `global_var.py`: this file stores the global constants that we use for information extraction, such as a list of strings that represent the "ground truth" awards for that ceremony; stopwords used for mining awards, nominees, presenters, etc; and regular expressions for tweet pre-processing.
+
+Depends on the machine that you would run this program on, the running time (pre-process + information extraction) would vary between 8 - 30 minutes. 
+
+## Design Logic
+
+Through out the design process of this project, we are mainly following on the four steps of run-time structure: 
+* Extraction
+* Clustering
+* Applying Constraints
+* Aggregation
+
+Almost all our functions follow the idea of the above four steps:
+* Extraction (Pre-processing): Within `pre-ceremony()`, we first pre-process the entire tweets. We perform data cleaning using the specified common stopwords for tweets to filter out abbreviations and slangs. We also remove emojis, punctuations, hashtags, tags, and links.
+* Clustering: We have written helper functions that uses regex expressions and keywords matching to cluster tweets with the most matching relevant award category. We also applied fuzzy matching that gets a probability score of which tweet that contains name matches the most with the award category (used in `get_winner(year)` function)
+* Applying Constraints: after clustering, we then apply a large amount of regular expression and string matching trying to extract useful information within the given tweet. By useful information we mean noun phrases that can correspond to human names, award names, or movie (series) names.
+* Aggregation: Lastly, we take the relatively clean data extracted and apply aggregation processes. We merge or discard similar names that may refer to the same person or same movie. We take the result and search in imdb library to get the final list. We then output our results in two forms: human readable form printed to the console, and a json file.
 
 ## Getting Started
 
 ### Dependencies
 
 * We use Python 3.10 for experiment.
-* Please refter to [requirement.txt](./requirement.txt) to install related modules.
+* Please refter to [requirement.txt](./Project_1/requirements.txt) to install related modules.
 
 ### Installing
 
@@ -34,9 +55,16 @@ This is the first project for Northwestern's COMP337 - Natural Language Processi
 
 - Change `output_dir` to your own directory path in `best_dress` and `worst_dress` functions
 
+- In the `main()` of `gg_api.py`, change `year = 2013` to other years if needed (Note, if running ceremonies other than the Golden Globes, change the string in `process_json(year) within the `util.py` to the filename you have
+
 - **Within the file `global_var.py`, change the constant `OFFICIAL_AWARDS` to that specific year's ground truth awards**
 
-- Run `gg_api.py` to get the results
+- Run `gg_api.py` to get the results (Note that, when running gg_api.py alone, you can comment out the lines:
+  ```
+  df = process_json(year)
+  df['text'] = df['text'].apply(remove_stopwords)
+  ```
+  to speed out the running proces, since we have defined a global variable `df` to store the pre-processed dataframe. For the functionality of `autograder.py`, we keep these lines since `autograder.py` individually calls each function, so it requires to read-in and pre-process the json file.
 
   ```shell
   python gg_api.py
