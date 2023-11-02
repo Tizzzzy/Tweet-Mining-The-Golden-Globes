@@ -1,3 +1,9 @@
+"""
+This file contains all the helper functions that we used when extracting informations of tweets 
+based on the given `year`
+"""
+
+
 import re
 import pandas as pd
 import numpy as np
@@ -17,6 +23,14 @@ nltk.download("popular")
 nltk.download("maxent_ne_chunker")
 nltk.download("words")
 
+
+"""
+General Helper Functions used for data pre-processing:
+
+- process_json(year)
+- remove_stopwords(year)
+- tweet_preprocess(year)
+"""
 
 def process_json(year):
     """
@@ -73,29 +87,12 @@ def tweet_preprocess(tweet):
     tweet = re.sub(LINKS, '', tweet)
     tweet = re.sub(PUNC, ' ', tweet)
     return tweet
-
-def extract_name(quote, language='english'):
-    """
-    Extracts person names from a given text using natural language processing.
-
-    Inputs:
-    - quote (str): The input text from which person names will be extracted.
-    - language (str): The language of the input text (default is 'english').
-    Outputs:
-    - list of str: A list of person names found in the input text.
-    """
-    
-    tokens = word_tokenize(quote)
-    tags = nltk.pos_tag(tokens)
-    tree = nltk.ne_chunk(tags)
-    names=[]
-    for subtree in tree.subtrees():
-        if subtree.label() == 'PERSON':
-            leave = " ".join(l[0] for l in subtree.leaves())
-            names.append(leave)
-    return names
   
 
+"""
+Helper Functions used within `get_award(year)`
+"""
+    
 def match_pattern(sentence):
     """
     Searches for a specific pattern in a sentence and extracts an award name if found.
@@ -114,6 +111,7 @@ def match_pattern(sentence):
     if match:
         return match.group("award")
 
+    
 def award_filter(award):
     """
     Filters out common stopwords from an award name.
@@ -161,6 +159,13 @@ def print_award(award_unique):
     return final_unique_awards
 
 
+"""
+The rest functions are used inter-changablely between functions like:
+get_nominee(year), get_presenters(year), and get_winners(year);
+we group them together as follows.
+
+"""
+
 def extract_from_tweet(tweet):
     """
     Extracts relevant text from a tweet based on specific patterns.
@@ -186,6 +191,30 @@ def extract_from_tweet(tweet):
             return ' '.join(tokens[i+1:])
 
     return []  # Return None if no matching pattern is found
+
+
+
+def extract_name(quote, language='english'):
+    """
+    Extracts person names from a given text using natural language processing.
+
+    Inputs:
+    - quote (str): The input text from which person names will be extracted.
+    - language (str): The language of the input text (default is 'english').
+    Outputs:
+    - list of str: A list of person names found in the input text.
+    """
+    
+    tokens = word_tokenize(quote)
+    tags = nltk.pos_tag(tokens)
+    tree = nltk.ne_chunk(tags)
+    names=[]
+    for subtree in tree.subtrees():
+        if subtree.label() == 'PERSON':
+            leave = " ".join(l[0] for l in subtree.leaves())
+            names.append(leave)
+    return names
+
 
 
 def rapid_fuzz(text_process):
@@ -264,6 +293,30 @@ def award_name_preprocess(award):
     return award
 
 
+
+"""
+    Reference: This code is modified based on the code here:
+               https://github.com/amitadate/EECS-337-NLP-Project-01/blob/master/src/gg_api.py
+
+    Updates extra award categories and their associated names based on official award names.
+
+    This function is designed to adapt and extend the list of award categories and their associated names to 
+    account for variations, subcategories, and alternate forms of official award names. It is typically used 
+    in the context of award ceremonies or events where awards may change over the years or have different 
+    names based on categories.
+
+    This function is a recursive function. It uses recursion to ensure that all possible alternative award names
+    are processed and added to the dictionaries.
+
+    Inputs: 
+        - OFFICIAL_AWARDS : a list of strings representing the awards for each year. This should be replaced
+                            based on different years or different ceremonies.
+        - extra_award : A dictionary containing extra award categories associated with official awards. 
+                        The function updates this dictionary with alternative award names if they are generated.
+        - extra_name : A dictionary containing names associated with the extra award categories. 
+                       Like `extra_award`, this dictionary is updated with additional names corresponding 
+                       to the extra award categories.
+    """
 def altAwardName(OFFICIAL_AWARDS, extra_award, extra_name):
   flag = 0
 
@@ -526,7 +579,33 @@ def altAwardName(OFFICIAL_AWARDS, extra_award, extra_name):
   if flag == 1:
     altAwardName(OFFICIAL_AWARDS, extra_award, extra_name)
 
+    
+    
 def getTweetByAward(OFFICIAL_AWARDS, extra_name, tweets):
+    """
+    Reference: This code is modified based on the code here:
+               https://github.com/amitadate/EECS-337-NLP-Project-01/blob/master/src/presenter.py
+    
+    This function organizes tweets by their relevance to official and extra award categories.
+    It initializes an empty dictionary named 'tweet_by_award_dict' to store tweets organized by award category.
+    It then Sorts the official award names in 'OFFICIAL_AWARDS' by their length in descending order to 
+    prioritize longer names and prevent partial matches.
+    It iterates through sorted official award names and tweets, checking for keyword relevance to 
+    award categories and associated names.
+    And finally determines the relevance of each tweet to award categories and adds them to corresponding lists 
+    in 'tweet_by_award_dict'.
+
+    Inputs:
+    - OFFICIAL_AWARDS (list of str): Official award names for a specific year or ceremony. 
+                                     These names serve as a reference for categorizing tweets.
+    - extra_name (dict): A dictionary containing names associated with extra award categories. 
+                         These names help identify tweets relevant to specific awards.
+    - tweets (list of str): A list of tweets to be organized based on their connection to award categories.
+    
+    Output:
+    - dict: A dictionary where keys represent award categories, and values are lists of tweets relevant to each award.
+    """
+    
     tweet_by_award_dict = dict()
     for award in OFFICIAL_AWARDS:
         tweet_by_award_dict[award] = []

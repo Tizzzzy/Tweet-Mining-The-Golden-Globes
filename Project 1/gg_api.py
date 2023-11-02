@@ -1,5 +1,6 @@
 '''Version 0.4'''
 
+# ============================================ Imports ====================================================
 import pandas as pd
 import numpy as np
 import re
@@ -14,6 +15,8 @@ from nltk import pos_tag
 import rapidfuzz
 from nameparser import HumanName
 from bing_image_downloader import downloader
+from global_var import *
+from util import *
 
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
@@ -21,11 +24,7 @@ nltk.download("popular")
 nltk.download("maxent_ne_chunker")
 nltk.download("words")
 
-
-from global_var import *
-from util import *
-
-
+# ============================================= Functions ====================================================
 
 def get_hosts(year):
     '''Hosts is a list of one or more strings. Do NOT change the name
@@ -56,6 +55,7 @@ def get_awards(year):
     awards = print_award(award_unique)
     print("=========================== Get Awards Finished ==============================")
     return awards 
+
 
 def get_nominees(year):
     '''Nominees is a dictionary with the hard coded award
@@ -106,7 +106,8 @@ def get_nominees(year):
             for tweet in value:
                 if any([kw in tweet for kw in PERSON_AWARD]):   
                     tweet = tweet.split()
-                    tweet = [word for word in tweet if word.lower() not in PERSON_AWARD and word.lower() not in NOMINATION_WORDS]
+                    tweet = [word for word in tweet if word.lower() not in PERSON_AWARD 
+                             and word.lower() not in NOMINATION_WORDS]
                     tweet = ' '.join(tweet)
                     names = re.findall(NAME_PATTERN, tweet)
                     for name in names:
@@ -115,12 +116,10 @@ def get_nominees(year):
                         else:
                             nominee[key][name] += 1
         else:
-            winner = ["musical","comedy","motion", "picture","golden","globe","movie","television","best","or","tv","original","series","animated",
-                      "feature","film","song","drama","-","rt","to","goes","foreign",'the']
             for tweet in value:
                 if not any([kw in tweet for kw in PERSON_AWARD]):
                     tweet = tweet.split()
-                    tweet = [word for word in tweet if word.lower() not in winner and word.lower() not in NOMINATION_WORDS]
+                    tweet = [word for word in tweet if word.lower() not in WINNER and word.lower() not in NOMINATION_WORDS]
                     tweet = ' '.join(tweet)
                     names = re.findall(NAME_PATTERN, tweet)
                     names = ' '.join(names)
@@ -154,7 +153,6 @@ def get_winner(year):
             lis.append(a)
         key_processed = award_name_preprocess(key)
         winner = most_common_words(key_processed, lis)
-        #winners.append((key, winner))
         winners[key] = winner
     print("============================== Get Winner Finished ==============================")
     return winners
@@ -231,17 +229,6 @@ def get_presenters(year):
     print("============================= Get Presenters Finished ===========================")
     return presenters_dict_by_awards
 
-def pre_ceremony():
-    '''This function loads/fetches/processes any data your program
-    will use, and stores that data in your DB or in a json, csv, or
-    plain text file. It is the first thing the TA will run when grading.
-    Do NOT change the name of this function or what it returns.'''
-    # Your code here
-    df = process_json('2013')
-    df['text'] = df['text'].apply(remove_stopwords)
-    print("==========================Pre-ceremony processing complete===========================")
-    return
-
 
 # extra credit
 def best_dressed(year):
@@ -275,6 +262,9 @@ def best_dressed(year):
 
 
 def worst_dressed(year):
+    """
+    Extra Credit: get the worst dressed 
+    """
     df = process_json(year)
     df['text'] = df['text'].apply(remove_stopwords)
     dic = dict()
@@ -288,8 +278,6 @@ def worst_dressed(year):
                     dic[name] = 1
                 else:
                     dic[name] += 1
-
-  
     k = Counter(dic)
     high = k.most_common(2)
     for person in high:
@@ -305,6 +293,9 @@ def worst_dressed(year):
       adult_filter_off=True, force_replace=False, timeout=60)
 
 def best_joke(year):
+    """
+    Extra Credit: get the best joke of the given year
+    """
     df = process_json(year)
     df['text'] = df['text'].apply(remove_stopwords)
     dic = dict()
@@ -347,6 +338,19 @@ def performer(year):
         print('Performer: ', person[0])
         print('prob: ', prob)
     
+    
+def pre_ceremony():
+    '''This function loads/fetches/processes any data your program
+    will use, and stores that data in your DB or in a json, csv, or
+    plain text file. It is the first thing the TA will run when grading.
+    Do NOT change the name of this function or what it returns.'''
+    # Your code here
+    df = process_json('2013')
+    df['text'] = df['text'].apply(remove_stopwords)
+    print("==========================Pre-ceremony processing complete===========================")
+    return
+
+
 
 def get_result_and_json(year):
     hosts = get_hosts(year)
@@ -409,9 +413,8 @@ def main():
     what it returns.'''
     # Your code here
     
-    print("Please enter the year:")
-    year = input()
-    
+    #print("Please enter the year:")
+    year = 2013
     pre_ceremony()
     get_result_and_json(year)
     

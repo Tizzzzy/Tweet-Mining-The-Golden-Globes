@@ -1,3 +1,13 @@
+"""
+This file contains global constants that we used for our functions.
+
+Mostly consists of various stopwords and regular expressions for 
+tweet preprocessing, get_hosts, get_awards, get_nominees, get_presenters,
+and functions for extra credits. 
+
+"""
+
+
 import re
 
 OFFICIAL_AWARDS = [
@@ -56,6 +66,9 @@ NOMINATION_WORDS = ["nominated", "nominee", "nominate", "to", "ceremony", "categ
                     "prestigious", "deserving", "celebrate", "recognized", "for", "goes to", "deserves", "recognize", "believe", "overlook", "deserved", "up", "rooting", "hope", "hoping",
                    "finally", "happy for", "robbed", "overrated", "pick", "tough", "competition","earned", "well", "favorite", "clear", "clearly", "well-deserved", "right", "direction"]
 
+
+WINNER = ["musical","comedy","motion", "picture","golden","globe","movie","television","best","or","tv","original","series","animated",
+"feature","film","song","drama","-","rt","to","goes","foreign",'the']
 
 VERBS = ['was', 'were', 'is', 'are']
 
