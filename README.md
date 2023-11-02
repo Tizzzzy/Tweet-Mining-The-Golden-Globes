@@ -34,9 +34,16 @@ This is the first project for Northwestern's COMP337 - Natural Language Processi
 
 - Change `output_dir` to your own directory path in `best_dress` and `worst_dress` functions
 
+- In the `main()` of `gg_api.py`, change `year = 2013` to other years if needed (Note, if running ceremonies other than the Golden Globes, change the string in `process_json(year) within the `util.py` to the filename you have
+
 - **Within the file `global_var.py`, change the constant `OFFICIAL_AWARDS` to that specific year's ground truth awards**
 
-- Run `gg_api.py` to get the results
+- Run `gg_api.py` to get the results (Note that, when running gg_api.py alone, you can comment out the lines:
+  ```
+  df = process_json(year)
+  df['text'] = df['text'].apply(remove_stopwords)
+  ```
+  to speed out the running proces, since we have defined a global variable `df` to store the pre-processed dataframe. For the functionality of `autograder.py`, we keep these lines since `autograder.py` individually calls each function, so it requires to read-in and pre-process the json file.
 
   ```shell
   python gg_api.py
