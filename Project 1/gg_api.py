@@ -13,7 +13,6 @@ from collections import Counter
 from imdb import IMDb
 from nltk import pos_tag
 import rapidfuzz
-from nameparser import HumanName
 from bing_image_downloader import downloader
 from global_var import *
 from util import *
