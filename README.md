@@ -32,7 +32,7 @@ Almost all our functions follow the idea of the above four steps:
 ### Dependencies
 
 * We use Python 3.10 for experiment.
-* Please refter to [requirement.txt](./Project 1/requirements.txt) to install related modules.
+* Please refter to [requirement.txt](./Project_1/requirements.txt) to install related modules.
 
 ### Installing
 
