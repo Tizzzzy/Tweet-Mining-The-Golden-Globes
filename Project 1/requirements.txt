@@ -7,4 +7,3 @@ bing-image-downloader
 pandas
 numpy
 nltk
-lxml==4.8.0
