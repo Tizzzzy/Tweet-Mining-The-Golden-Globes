@@ -100,7 +100,7 @@ def get_nominees(year):
         nominee_names[award]=[]
         
     nominee = {}
-    ia = IMDb()
+    # ia = IMDb(accessSystem='http', reraiseExceptions=True)
     for key, value in tweet_by_award_dict.items():
         nominee[key] = {}
         if any([kw in key for kw in PERSON_AWARD]):
@@ -123,17 +123,12 @@ def get_nominees(year):
                     tweet = [word for word in tweet if word.lower() not in WINNER and word.lower() not in NOMINATION_WORDS]
                     tweet = ' '.join(tweet)
                     names = re.findall(NAME_PATTERN, tweet)
-                    names = ' '.join(names)
-                    if names != '':
-                        movies = ia.search_movie(names)
-                        if len(movies) != 0:
-                            for m in movies:
-                                if "year" in m:
-                                    if m["year"] == 2013 or m["year"] == 2012 or m["year"] == 2011:
-                                        if m["title"] not in nominee[key]:
-                                            nominee[key][m["title"]] = 1
-                                        else:
-                                            nominee[key][m["title"]] += 1
+                    for name in names:
+                        if name not in nominee[key]:
+                            nominee[key][name] = 1
+                        else:
+                            nominee[key][name] += 1
+                            
     print("============================= Get Nominee Finished ==============================")
     return nominee
 
@@ -371,13 +366,15 @@ def get_result_and_json(year):
     print(f'Host: {host}\n')
 
     presenters_dict = get_presenters(year)
+    print(presenters_dict)
     winner_dict = get_winner(year)
-    nominees_dict = get_nominees(year)
     print(winner_dict)
+    nominees_dict = get_nominees(year)
     awards_data = {
             "year": year,
             "host": host,
-            "awards": award_generated
+            "awards": award_generated,
+            "results": {}
     }
 
     for award in OFFICIAL_AWARDS:
@@ -392,7 +389,7 @@ def get_result_and_json(year):
             '''
         )
 
-        awards_data["awards"][award] = {
+        awards_data["results"][award] = {
             "Presenters": presenters,
             "Nominees": nominees,
             "Winner": winner
@@ -400,7 +397,7 @@ def get_result_and_json(year):
         
     
     
-    with open('result'+year+'.json', 'w') as fp:
+    with open('result'+str(year)+'.json', 'w') as fp:
         json.dump(awards_data, fp)
 
     print("==========================Json File Generated===========================\n")
